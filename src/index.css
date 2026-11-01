@@ -1,0 +1,259 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Colour tokens copied from the App Template library (Radix scales + shadcn names). */
+:root {
+  --slate-1: #fcfcfd;
+  --slate-2: #f9f9fb;
+  --slate-3: #f0f0f3;
+  --slate-4: #e8e8ec;
+  --slate-5: #e0e1e6;
+  --slate-6: #d9d9e0;
+  --slate-7: #cdced6;
+  --slate-8: #b9bbc6;
+  --slate-9: #8b8d98;
+  --slate-10: #80838d;
+  --slate-11: #60646c;
+  --slate-12: #1c2024;
+  --indigo-1: #fdfdfe;
+  --indigo-2: #f7f9ff;
+  --indigo-3: #edf2fe;
+  --indigo-4: #e1e9ff;
+  --indigo-5: #d2deff;
+  --indigo-6: #c1d0ff;
+  --indigo-7: #abbdf9;
+  --indigo-8: #8da4ef;
+  --indigo-9: #3e63dd;
+  --indigo-10: #3358d4;
+  --indigo-11: #3a5bc7;
+  --indigo-12: #1f2d5c;
+  --red-1: #fffcfc;
+  --red-2: #fff7f7;
+  --red-3: #feebec;
+  --red-4: #ffdbdc;
+  --red-5: #ffcdce;
+  --red-6: #fdbdbe;
+  --red-7: #f4a9aa;
+  --red-8: #eb8e90;
+  --red-9: #e5484d;
+  --red-10: #dc3e42;
+  --red-11: #ce2c31;
+  --red-12: #641723;
+  --amber-1: #fefdfb;
+  --amber-2: #fefbe9;
+  --amber-3: #fff7c2;
+  --amber-4: #ffee9c;
+  --amber-5: #fbe577;
+  --amber-6: #f3d673;
+  --amber-7: #e9c162;
+  --amber-8: #e2a336;
+  --amber-9: #ffc53d;
+  --amber-10: #ffba18;
+  --amber-11: #ab6400;
+  --amber-12: #4f3422;
+  --grass-1: #fbfefb;
+  --grass-2: #f5fbf5;
+  --grass-3: #e9f6e9;
+  --grass-4: #daf1db;
+  --grass-5: #c9e8ca;
+  --grass-6: #b2ddb5;
+  --grass-7: #94ce9a;
+  --grass-8: #65ba74;
+  --grass-9: #46a758;
+  --grass-10: #3e9b4f;
+  --grass-11: #2a7e3b;
+  --grass-12: #203c25;
+}
+
+.dark {
+  --slate-1: #111113;
+  --slate-2: #18191b;
+  --slate-3: #212225;
+  --slate-4: #272a2d;
+  --slate-5: #2e3135;
+  --slate-6: #363a3f;
+  --slate-7: #43484e;
+  --slate-8: #5a6169;
+  --slate-9: #696e77;
+  --slate-10: #777b84;
+  --slate-11: #b0b4ba;
+  --slate-12: #edeef0;
+  --indigo-1: #11131f;
+  --indigo-2: #141726;
+  --indigo-3: #182449;
+  --indigo-4: #1d2e62;
+  --indigo-5: #253974;
+  --indigo-6: #304384;
+  --indigo-7: #3a4f97;
+  --indigo-8: #435db1;
+  --indigo-9: #3e63dd;
+  --indigo-10: #5472e4;
+  --indigo-11: #9eb1ff;
+  --indigo-12: #d6e1ff;
+  --red-1: #191111;
+  --red-2: #201314;
+  --red-3: #3b1219;
+  --red-4: #500f1c;
+  --red-5: #611623;
+  --red-6: #72232d;
+  --red-7: #8c333a;
+  --red-8: #b54548;
+  --red-9: #e5484d;
+  --red-10: #ec5d5e;
+  --red-11: #ff9592;
+  --red-12: #ffd1d9;
+  --amber-1: #16120c;
+  --amber-2: #1d180f;
+  --amber-3: #302008;
+  --amber-4: #3f2700;
+  --amber-5: #4d3000;
+  --amber-6: #5c3d05;
+  --amber-7: #714f19;
+  --amber-8: #8f6424;
+  --amber-9: #ffc53d;
+  --amber-10: #ffd60a;
+  --amber-11: #ffca16;
+  --amber-12: #ffe7b3;
+  --grass-1: #0e1511;
+  --grass-2: #141a15;
+  --grass-3: #1b2a1e;
+  --grass-4: #1d3a24;
+  --grass-5: #25482d;
+  --grass-6: #2d5736;
+  --grass-7: #366740;
+  --grass-8: #3e7949;
+  --grass-9: #46a758;
+  --grass-10: #53b365;
+  --grass-11: #71d083;
+  --grass-12: #c2f0c2;
+}
+
+/* shadcn's semantic tokens now resolve to Radix steps rather than hand-picked
+   values, so every existing component inherits the scale automatically. */
+:root {
+  /* Light mode needs three separated planes. Radix slate 1 and 2 differ by
+     about one percent at the light end, so page and card resolved to the same
+     white and every panel disappeared. Page sits on slate-2, raised surfaces
+     go pure white, the rail recedes to slate-3. Dark mode keeps the scale as
+     it is — the steps separate properly down there. */
+  --background: var(--slate-2);
+  --foreground: var(--slate-12);
+  --card: #ffffff;
+  --card-foreground: var(--slate-12);
+  --popover: #ffffff;
+  --popover-foreground: var(--slate-12);
+  --primary: var(--indigo-9);
+  --primary-foreground: white;
+  --secondary: var(--slate-4);
+  --secondary-foreground: var(--slate-12);
+  --muted: var(--slate-3);
+  --muted-foreground: var(--slate-11);
+  --accent: var(--slate-4);
+  --accent-foreground: var(--slate-12);
+  --destructive: var(--red-9);
+  --destructive-foreground: white;
+  --border: var(--slate-6);
+  --input: var(--slate-7);
+  --ring: var(--indigo-8);
+  --chart-1: var(--indigo-9);
+  --chart-2: var(--grass-9);
+  --chart-3: var(--amber-9);
+  --chart-4: var(--red-9);
+  --chart-5: var(--slate-9);
+  --sidebar: var(--slate-3);
+  --sidebar-foreground: var(--slate-12);
+  --sidebar-primary: var(--indigo-9);
+  --sidebar-primary-foreground: white;
+  --sidebar-accent: var(--slate-5);
+  --sidebar-accent-foreground: var(--slate-12);
+  --sidebar-border: var(--slate-6);
+  --sidebar-ring: var(--indigo-8);
+}
+
+/* Must come after :root — both are one class of specificity, so order decides.
+   Dark keeps the original mapping (page on slate-1, raised surfaces on
+   slate-2), which separates fine at this end of the scale. Without this the
+   light-mode literals above leak into dark and cards render white. */
+.dark {
+  --background: var(--slate-1);
+  --card: var(--slate-2);
+  --popover: var(--slate-2);
+  --sidebar: var(--slate-2);
+  --sidebar-accent: var(--slate-4);
+}
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+}
+
+@keyframes curve-trace {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [role="status"] path { animation: none !important; stroke-dasharray: none !important; }
+}
+
+/* ---- Chess app ---------------------------------------------------------- */
+:root {
+  --sq-light: #e3e6ef;
+  --sq-dark: #8792b4;
+  --sq-last: oklch(0.85 0.14 85 / 0.55);
+  --sq-select: oklch(0.65 0.18 265 / 0.55);
+}
+.dark {
+  --sq-light: #cfd4e2;
+  --sq-dark: #6b779c;
+}
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.piece-glyph {
+  font-family: "Segoe UI Symbol", "Noto Sans Symbols 2", "DejaVu Sans", serif;
+  line-height: 1;
+  user-select: none;
+}
+.piece-white {
+  color: #fbfbfd;
+  text-shadow: 0 0 1px #1c2024, 0 0 1px #1c2024, 0 0 1px #1c2024, 0 2px 3px rgb(0 0 0 / 0.35);
+}
+.piece-black {
+  color: #1c2024;
+  text-shadow: 0 0 1px #fff8, 0 2px 3px rgb(0 0 0 / 0.35);
+}

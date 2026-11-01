@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" width="96" height="96">
+  <rect width="96" height="96" rx="22" fill="#1b1d24"/>
+  <rect x="8" y="8" width="40" height="40" rx="6" fill="#6b7aa1" opacity="0.35"/>
+  <rect x="48" y="48" width="40" height="40" rx="6" fill="#6b7aa1" opacity="0.35"/>
+  <text x="48" y="70" font-size="62" text-anchor="middle" fill="#f2f3f7" font-family="'Segoe UI Symbol','Noto Sans Symbols 2','DejaVu Sans',sans-serif">&#9822;</text>
+</svg>
