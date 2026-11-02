@@ -5,6 +5,7 @@ import {
   BISHOP,
   Board,
   KNIGHT,
+  PAWN,
   QUEEN,
   ROOK,
   WHITE,
@@ -16,7 +17,19 @@ import {
 import { EASE, SPRING } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
-const GLYPH = ["", "♟", "♞", "♝", "♜", "♛", "♚"];
+const GLYPH = ["", "", "♞", "♝", "♜", "♛", "♚"];
+
+/** Drawn, not typed: iPhones show the ♟ character as a black emoji whatever its colour is set to. */
+function PawnIcon() {
+  return (
+    <svg className="piece-pawn" viewBox="0 0 32 32" aria-hidden="true">
+      <circle cx="16" cy="8.5" r="4.5" />
+      <path d="M13 14.5C13 19 11.5 22 9.5 24.5H22.5C20.5 22 19 19 19 14.5Z" />
+      <rect x="11" y="12.5" width="10" height="2.25" rx="1.1" />
+      <rect x="7.5" y="24.5" width="17" height="3.5" rx="1.5" />
+    </svg>
+  );
+}
 
 export function PieceGlyph({ piece, className, style }: { piece: number; className?: string; style?: React.CSSProperties }) {
   return (
@@ -24,8 +37,14 @@ export function PieceGlyph({ piece, className, style }: { piece: number; classNa
       className={cn("piece-glyph", colorOf(piece) === WHITE ? "piece-white" : "piece-black", className)}
       style={style}
     >
-      {GLYPH[typeOf(piece)]}
-      {"︎"}
+      {typeOf(piece) === PAWN ? (
+        <PawnIcon />
+      ) : (
+        <>
+          {GLYPH[typeOf(piece)]}
+          {"︎"}
+        </>
+      )}
     </span>
   );
 }

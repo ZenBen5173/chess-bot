@@ -249,6 +249,19 @@ body {
   line-height: 1;
   user-select: none;
 }
+.piece-pawn {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.1em;
+  fill: currentColor;
+  stroke: #1c2024;
+  stroke-width: 1;
+  filter: drop-shadow(0 2px 3px rgb(0 0 0 / 0.35));
+}
+.piece-black .piece-pawn {
+  stroke: #fff8;
+}
 .piece-white {
   color: #fbfbfd;
   text-shadow: 0 0 1px #1c2024, 0 0 1px #1c2024, 0 0 1px #1c2024, 0 2px 3px rgb(0 0 0 / 0.35);
